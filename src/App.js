@@ -23,24 +23,20 @@ function App() {
     setItems(temp);
   }
 
-  function removeItem(index) {
-    //sane as addItem, create temp array with everything thats in items - 1 at index
-    // set item to this new array
-    // pass this removeItem function to the Todo component
-    //
-    // var editedItems = [];
-    // items.forEach((element, index) => {
-    //   if (indexToDelete !== index) {
-    //     editedItems.push(element);
-    //   }
-    // });
-    // setItems(editedItems);
+  function removeItem(indexToDelete) {
+    var completedTodo = [];
+    items.forEach((element, index) => {
+      if (indexToDelete !== index) {
+        completedTodo.push(element);
+      }
+    });
+    setItems(completedTodo);
   }
 
   return (
     <div className="App">
       <h1>todo list:</h1>
-      <Todo items={items} />
+      <Todo items={items} removeItem={removeItem} />
       <AddToDo addItem={addItem} />
     </div>
   );
