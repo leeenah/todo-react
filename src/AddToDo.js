@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 
 export default function AddToDo(props) {
-  const [item, setItem] = useState(null);
+  const [item, setItem] = useState("");
 
   function addTodo(event) {
     event.preventDefault();
     props.addItem(item);
+    setItem("");
   }
 
   function update(event) {
@@ -16,8 +17,15 @@ export default function AddToDo(props) {
   return (
     <div className="AddToDo">
       <form>
-        <input text="text" placeholder="add todo" onChange={update} />
-        <button onClick={addTodo}>Add</button>
+        <input
+          value={item}
+          text="text"
+          placeholder="add todo"
+          onChange={update}
+        />
+        <button onClick={addTodo} disabled={item === ""}>
+          Add
+        </button>
       </form>
     </div>
   );

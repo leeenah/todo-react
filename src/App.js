@@ -6,13 +6,7 @@ import AddToDo from "./AddToDo.js";
 import "./App.css";
 
 function App() {
-  const [items, setItems] = useState([
-    "apples",
-    "bananas",
-    "oranges",
-    "pears",
-    "make pavel smile",
-  ]);
+  const [items, setItems] = useState([]);
 
   function addItem(item) {
     var temp = [];
